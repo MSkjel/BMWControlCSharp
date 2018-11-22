@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BMWControl
@@ -26,12 +27,9 @@ namespace BMWControl
             ConfigHandler = new ConfigHandler();
             ServerHandler = new ServerHandler();
 
-            Task.Factory.StartNew(() =>
-            {
-                CanEventHandler = new CanEventHandler();
-                CarHandler = new CarHandler();
-                CanHandler = new CanHandler();
-            });
+            CanHandler = new CanHandler();
+            CanEventHandler = new CanEventHandler();
+            CarHandler = new CarHandler();
 
             Console.ReadLine();
 

@@ -45,6 +45,7 @@
     <Compile Include="BMWControl.cs" />
     <Compile Include="CanEvents\ICanEvent.cs" />
     <Compile Include="CarHandlers\CarHandler.cs" />
+    <Compile Include="CarHandlers\EngineHandler.cs" />
     <Compile Include="CarHandlers\SpeedHandler.cs" />
     <Compile Include="Handlers\ConfigHandler.cs" />
     <Compile Include="CarHandlers\DoorHandler.cs" />

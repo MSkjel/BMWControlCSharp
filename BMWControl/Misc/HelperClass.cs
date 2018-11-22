@@ -47,7 +47,7 @@ namespace BMWControl.Misc
         //    }
         //}
 
-        public static float GetHexReversedValueInt(byte[] bytes)
+        public static float GetHexReversedValueInt(IEnumerable<byte> bytes)
         {
             string[] arr = bytes.Select(x => x.ToString("X")).ToArray();
             string final = "";
@@ -62,7 +62,7 @@ namespace BMWControl.Misc
             return short.Parse(final, NumberStyles.HexNumber);
         }
 
-        public static float GetHexReversedValueFloat(byte[] bytes)
+        public static float GetHexReversedValueFloat(IEnumerable<byte> bytes)
         {
             string[] arr = bytes.Select(x => x.ToString("X")).ToArray();
             string final = "";
@@ -87,9 +87,9 @@ namespace BMWControl.Misc
             return VIN;
         }
 
-        public static int GetMSB(int shortValue)
+        public static byte GetMSB(int shortValue)
         {
-            return (shortValue & 0xF0) >> 4;
+            return (byte)((shortValue & 0xF0) >> 4);
         }
 
         public static int GetMSBNoShift(int shortValue)
@@ -97,9 +97,9 @@ namespace BMWControl.Misc
             return (shortValue & 0xF0);
         }
 
-        public static int GetLSB(int shortValue)
+        public static byte GetLSB(int shortValue)
         {
-            return (shortValue & 0x0F);
+            return (byte)(shortValue & 0x0F);
         }
 
         public static int GetSingleBitAsInt(byte b, int index)

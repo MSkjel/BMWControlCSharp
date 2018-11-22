@@ -26,6 +26,31 @@ namespace BMWControl.Misc
         public const int IGNITION_STATUS_ON = 0x45;
         public const int IGNITION_STATUS_ENGINE_START = 0x55;
 
+        //Steering wheel buttons
+        public const int STEERING_WHEEL_BUTTON_VOL_DOWN = 0xC4;
+        public const int STEERING_WHEEL_BUTTON_VOL_UP = 0xC8;
+        public const int STEERING_WHEEL_BUTTON_VOICE = 0xC9;
+        public const int STEERING_WHEEL_BUTTON_PHONE = 0xC1;
+        public const int STEERING_WHEEL_BUTTON_DIAMOND_STAR_HORN = 0xC0;
+        public const int STEERING_WHEEL_BUTTON_DIAMOND = 0x40;
+        public const int STEERING_WHEEL_BUTTON_STAR = 0x10;
+        public const int STEERING_WHEEL_BUTTON_UP = 0xE0;
+        public const int STEERING_WHEEL_BUTTON_DOWN = 0xD0;
+        public const int STEERING_WHEEL_BUTTON_HORN = 0x04;
+
+        //iDrive Controller
+        public const int IDRIVE_CONTROLLER_MENU_PRESS = 0x0F;
+        public const int IDRIVE_CONTROLLER_MENU = 0xC4;
+        public const int IDRIVE_CONTROLLER_PRESS = 0xC1;
+        public const int IDRIVE_CONTROLLER_UP_DOWN_LEFT_RIGHT = 0xC0;
+        public const int IDRIVE_CONTROLLER_UP = 0x00;
+        public const int IDRIVE_CONTROLLER_DOWN = 0x04;
+        public const int IDRIVE_CONTROLLER_LEFT = 0x06;
+        public const int IDRIVE_CONTROLLER_RIGHT = 0x02;
+
+        //Seat Controls
+        public const int SEAT_BACK_FORWARD = 0x10;
+        public const int SEAT_BACK_BACKWARDS = 0x20;
     }
 
     public class CanID
@@ -54,7 +79,7 @@ namespace BMWControl.Misc
 
         //Temperature
         public const int OUTSIDE_TEMP = 0x2CA;
-        public const int ENGINE_TEMP = 0x1D0;
+        public const int ENGINE_TEMP_PRESSURE_HANDBRAKE = 0x1D0;
         public const int INSIDE_TEMP = 0x32E;
 
 
@@ -67,5 +92,17 @@ namespace BMWControl.Misc
         //Seat
         public const int SEAT_STATUS_DRIVER = 0x232;
         public const int SEAT_STATUS_PASSENGER = 0x22A;
+
+        //Steering wheel
+        public const int STEERING_WHEEL_CONTROLS = 0x1D6;
+
+        //iDrive Controller
+        public const int IDRIVE_CONTROLLER = 0x1B8;
+
+        //Seat Controls Passenger
+        public const int SEAT_CONTROLS_PASSENGER = 0xD2;
+
+        //Seat Controls Driver
+        public const int SEAT_CONTROLS_DRIVER = 0xDA;
     }
 }

@@ -30,6 +30,16 @@ namespace BMWControl.CarHandlers
         public SeatHandler()
         {
             CanEventHandler.AddCanEventHandler(this);
+
+            SteeringWheelButtons.OnUpPressed.Add(new Action(() =>
+            {
+                PassengerSeatControls.SeatBackForward();
+            }));
+
+            SteeringWheelButtons.OnDownPressed.Add(new Action(() =>
+            {
+                PassengerSeatControls.SeatBackBackwards();
+            }));
         }
 
         public override void OnCanFrameReceived(CanFrame canFrame)
@@ -53,5 +63,18 @@ namespace BMWControl.CarHandlers
         {
             int presses = 0;
         }
+    }
+
+    public class DriverSeatControls
+    {
+
+    }
+
+    public class PassengerSeatControls
+    {
+        private static CanHandler CanHandler => BMWControl.CanHandler;
+
+        public static void SeatBackForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_PASSENGER, new byte[] { CanValue.SEAT_BACK_FORWARD, 0x00, 0xC0, 0xFF });
+        public static void SeatBackBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_PASSENGER, new byte[] { CanValue.SEAT_BACK_BACKWARDS, 0x00, 0xC0, 0xFF });
     }
 }

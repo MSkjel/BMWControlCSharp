@@ -27,5 +27,10 @@ namespace BMWControl.Misc
         {
 
         }
+
+        public override string ToString()
+        {
+            return $"CanID: {CanID.ToString("X2")}. Data: [{string.Join("-", Data.Select(x => x.ToString("X2")))}]";
+        }
     }
 }

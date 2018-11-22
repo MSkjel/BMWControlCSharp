@@ -20,7 +20,7 @@ namespace BMWControl.Handlers
                 try
                 {
                     canEvent.Item2.OnCanFrameReceived(canFrame);
-                    Console.WriteLine($"Sent CanEvent({canFrame.CanID.ToString("X2")}) to: {canEvent.Item2.Name}");
+                    //Console.WriteLine($"Sent CanEvent({canFrame.CanID.ToString("X2")}) to: {canEvent.Item2.Name}");
                 }
                 catch(Exception e)
                 {
