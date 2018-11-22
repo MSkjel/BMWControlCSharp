@@ -1,4 +1,6 @@
-﻿using BMWControl.Handlers;
+﻿using BMWControl.CarHandlers;
+using BMWControl.Handlers;
+using BMWControl.Handlers.ButtonHandler;
 using BMWControl.Misc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ namespace BMWControl.CanEvents
     {
         public CanHandler CanHandler => BMWControl.CanHandler;
         public CanEventHandler CanEventHandler => BMWControl.CanEventHandler;
+        public CarHandler CarHandler => BMWControl.CarHandler;
+        public MultiMediaButtonHandler MultiMediaButtonHandler => CarHandler.MultiMediaButtonHandler;
 
         public virtual string Name => GetType().Name;
 

@@ -43,18 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BMWControl.cs" />
+    <Compile Include="CanEvents\IButtonEvent.cs" />
     <Compile Include="CanEvents\ICanEvent.cs" />
-    <Compile Include="CarHandlers\CarHandler.cs" />
-    <Compile Include="CarHandlers\EngineHandler.cs" />
-    <Compile Include="CarHandlers\SpeedHandler.cs" />
-    <Compile Include="Handlers\ConfigHandler.cs" />
-    <Compile Include="CarHandlers\DoorHandler.cs" />
-    <Compile Include="CarHandlers\LightHandler.cs" />
-    <Compile Include="CarHandlers\MultiMediaHandler.cs" />
-    <Compile Include="CarHandlers\SeatHandler.cs" />
-    <Compile Include="Handlers\CanEventHandler.cs" />
-    <Compile Include="Handlers\CanHandler.cs" />
-    <Compile Include="Handlers\ServerHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\CarHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\EngineHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\SpeedHandler.cs" />
+    <Compile Include="Handlers\ButtonHandlers\MultiMediaButtonHandler.cs" />
+    <Compile Include="Handlers\CanHandlers\ConfigHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\DoorHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\LightHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\MultiMediaHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\SeatHandler.cs" />
+    <Compile Include="Handlers\CanHandlers\CanEventHandler.cs" />
+    <Compile Include="Handlers\CanHandlers\CanHandler.cs" />
+    <Compile Include="Handlers\CanHandlers\ServerHandler.cs" />
     <Compile Include="Misc\CanFrame.cs" />
     <Compile Include="Misc\CanID.cs" />
     <Compile Include="Misc\HelperClass.cs" />

@@ -31,12 +31,12 @@ namespace BMWControl.CarHandlers
         {
             CanEventHandler.AddCanEventHandler(this);
 
-            SteeringWheelButtons.OnUpPressed.Add(new Action(() =>
+            MultiMediaButtonHandler.SteeringWheelUp.AddPressListener(new Action(() =>
             {
                 PassengerSeatControls.SeatBackForward();
             }));
 
-            SteeringWheelButtons.OnDownPressed.Add(new Action(() =>
+            MultiMediaButtonHandler.SteeringWheelDown.AddPressListener(new Action(() =>
             {
                 PassengerSeatControls.SeatBackBackwards();
             }));

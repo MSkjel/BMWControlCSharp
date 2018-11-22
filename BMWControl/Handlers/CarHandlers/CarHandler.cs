@@ -1,5 +1,6 @@
 ﻿using BMWControl.CanEvents;
 using BMWControl.Handlers;
+using BMWControl.Handlers.ButtonHandler;
 using BMWControl.Misc;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,18 @@ namespace BMWControl.CarHandlers
 {
     public class CarHandler : ICanEvent
     {
+        #region CanHandlers
         public static DoorHandler DoorHandler;
         public static LightHandler LightHandler;
         public static MultiMediaHandler MultiMediaHandler;
         public static SeatHandler SeatHandler;
         public static SpeedHandler SpeedHandler;
         public static EngineHandler EngineHandler;
+        #endregion
+
+        #region Buttons
+        public new static MultiMediaButtonHandler MultiMediaButtonHandler = new MultiMediaButtonHandler();
+        #endregion
 
         public int Mileage;
         public int Range;
@@ -38,10 +45,10 @@ namespace BMWControl.CarHandlers
 
         public override void OnCanFrameReceived(CanFrame canFrame)
         {
-            switch(canFrame.CanID)
-            {
+            //switch(canFrame.CanID)
+            //{
                 
-            }
+            //}
         }
     }
 }
