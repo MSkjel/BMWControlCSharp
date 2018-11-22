@@ -14,7 +14,7 @@ namespace BMWControl.Handlers
         private ConfigHandler ConfigHandler => BMWControl.ConfigHandler;
         private CanEventHandler CanEventHandler => BMWControl.CanEventHandler;
 
-        private const string CanDevice = "vcan0";
+        private const string CanDevice = "can0";
 
         [DllImport("libCanWrapper.so",
               CallingConvention = CallingConvention.Cdecl)]

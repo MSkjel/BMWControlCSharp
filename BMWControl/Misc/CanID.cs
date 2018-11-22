@@ -49,8 +49,15 @@ namespace BMWControl.Misc
         public const int IDRIVE_CONTROLLER_RIGHT = 0x02;
 
         //Seat Controls
+        public const int SEAT_FORWARD = 0x01;
+        public const int SEAT_BACKWARDS = 0x02;
+        public const int SEAT_UP = 0x04;
+        public const int SEAT_DOWN = 0x08;
         public const int SEAT_BACK_FORWARD = 0x10;
         public const int SEAT_BACK_BACKWARDS = 0x20;
+        public const int SEAT_M_BUTTON = 0xFC;
+        public const int SEAT_1_BUTTON = 0xF9;
+        public const int SEAT_2_BUTTON = 0xFA;
     }
 
     public class CanID
@@ -100,9 +107,11 @@ namespace BMWControl.Misc
         public const int IDRIVE_CONTROLLER = 0x1B8;
 
         //Seat Controls Passenger
-        public const int SEAT_CONTROLS_PASSENGER = 0xD2;
+        public const int SEAT_CONTROLS_ADJUSTMENT_PASSENGER = 0xD2;
+        public const int SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER = 0x1F2;
 
         //Seat Controls Driver
-        public const int SEAT_CONTROLS_DRIVER = 0xDA;
+        public const int SEAT_CONTROLS_ADJUSTMENT_DRIVER = 0xDA;
+        public const int SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER = 0x1F3;
     }
 }

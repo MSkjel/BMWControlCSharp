@@ -16,25 +16,27 @@ namespace BMWControl.CanEvents
         private List<Action> OnPressListeners = new List<Action>();
         private List<Action> OnReleaseListeners = new List<Action>();
 
-        public string Name 
+        public string Name = "";
 
         public bool IsPressed = false;
 
         public CanFrame CanFrame;
 
 
-        public IButtonEvent()
+        public IButtonEvent(string Name)
         {
-
+            this.Name = Name;
         }
 
-        public IButtonEvent(int CanID, byte[] Data)
+        public IButtonEvent(string Name, int CanID, byte[] Data)
         {
+            this.Name = Name;
             CanFrame = new CanFrame(CanID, Data);
         }
 
-        public IButtonEvent(CanFrame canFrame)
+        public IButtonEvent(string Name, CanFrame canFrame)
         {
+            this.Name = Name;
             CanFrame = canFrame;
         }
 

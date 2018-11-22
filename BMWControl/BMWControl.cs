@@ -31,9 +31,7 @@ namespace BMWControl
             CanEventHandler = new CanEventHandler();
             CarHandler = new CarHandler();
 
-            Console.ReadLine();
-
-            ConfigHandler.Run = false;
+            while (ConfigHandler.Run) ;
         }
     }
 }

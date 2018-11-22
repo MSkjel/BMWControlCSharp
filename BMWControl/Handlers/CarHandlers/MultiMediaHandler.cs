@@ -22,7 +22,6 @@ namespace BMWControl.CarHandlers
             switch(canFrame.CanID)
             {
                 case CanID.STEERING_WHEEL_CONTROLS:
-                    //Console.WriteLine("Got Wheel input");
                     switch(canFrame.Data[0])
                     {
                         case CanValue.STEERING_WHEEL_BUTTON_VOL_UP:
@@ -42,11 +41,11 @@ namespace BMWControl.CarHandlers
                             break;
 
                         case CanValue.STEERING_WHEEL_BUTTON_DIAMOND_STAR_HORN:
-                            if (canFrame.Data[2] == CanValue.STEERING_WHEEL_BUTTON_DIAMOND)
+                            if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_DIAMOND)
                                 MultiMediaButtonHandler.SteeringWheelDiamond.OnPressed();
-                            else if (canFrame.Data[2] == CanValue.STEERING_WHEEL_BUTTON_STAR)
+                            else if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_STAR)
                                 MultiMediaButtonHandler.SteeringWheelStar.OnPressed();
-                            else if (canFrame.Data[2] == CanValue.STEERING_WHEEL_BUTTON_HORN)
+                            else if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_HORN)
                                 MultiMediaButtonHandler.SteeringWheelHorn.OnPressed();
                             break;
 
