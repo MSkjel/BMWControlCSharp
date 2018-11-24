@@ -33,38 +33,43 @@ namespace BMWControl.CarHandlers
 
             MultiMediaButtonHandler.SteeringWheelUp.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatBackForward();
+                PassengerSeatControls.TiltForward();
             }));
 
             MultiMediaButtonHandler.SteeringWheelDown.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatBackBackwards();
+                PassengerSeatControls.TiltBackward();
             }));
 
             MultiMediaButtonHandler.SteeringWheelDiamond.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatForward();
+                PassengerSeatControls.CushionForward();
             }));
 
             MultiMediaButtonHandler.SteeringWheelStar.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatBackwards();
+                PassengerSeatControls.CushionBackward();
             }));
 
-            MultiMediaButtonHandler.SteeringWheelPhone.AddReleaseListener(new Action(() =>
+            MultiMediaButtonHandler.SteeringWheelPhone.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatUp();
+                PassengerSeatControls.HeadrestUp();
             }));
 
             MultiMediaButtonHandler.SteeringWheelVoice.AddPressListener(new Action(() =>
             {
-                PassengerSeatControls.SeatDown();
+                PassengerSeatControls.HeadrestDown();
             }));
         }
 
         public override void OnCanFrameReceived(CanFrame canFrame)
         {
             CheckSeatHeatingLevel(canFrame);
+
+            if(canFrame.CanID == CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER)
+                Console.WriteLine("Adjustment: " + canFrame.ToString());
+            else if(canFrame.CanID == CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER)
+                Console.WriteLine("Mem buttons: " + canFrame.ToString());
         }
 
         public void CheckSeatHeatingLevel(CanFrame canFrame)
@@ -89,31 +94,43 @@ namespace BMWControl.CarHandlers
     {
         private static CanHandler CanHandler => BMWControl.CanHandler;
 
-        public static void SeatForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_FORWARD, 0x00, 0xC0, 0xFF });
-        public static void SeatBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACKWARDS, 0x00, 0xC0, 0xFF });
-        public static void SeatBackForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACK_FORWARD, 0x00, 0xC0, 0xFF });
-        public static void SeatBackBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACK_BACKWARDS, 0x00, 0xC0, 0xFF });
-        public static void SeatUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_UP, 0x00, 0xC0, 0xFF });
-        public static void SeatDown() => CanHandler.SendCanFrame(CanID.SEAT_STATUS_DRIVER, new byte[] { CanValue.SEAT_DOWN, 0x00, 0xC0, 0xFF });
+        public static void Forward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_FORWARD, 0x00, 0xC0, 0xFF });
+        public static void Backwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void BackrestForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACK_FORWARD, 0x00, 0xC0, 0xFF });
+        public static void BackrestBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_BACK_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void Up() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_UP, 0x00, 0xC0, 0xFF });
+        public static void Down() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_DOWN, 0x00, 0xC0, 0xFF });
+        public static void TiltForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_TILT_FORWARDS, 0x00, 0xC0, 0xFF });
+        public static void TiltBackward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { CanValue.SEAT_TILT_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void CushionForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, CanValue.SEAT_CUSHION_FORWARD, 0xC0, 0xFF });
+        public static void CushionBackward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, CanValue.SEAT_CUSHION_BACKWARDS, 0xC0, 0xFF });
+        public static void HeadrestUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_UP, 0xFF });
+        public static void HeadrestDown() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_DOWN, 0xFF });
 
-        public static void PressMButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
-        public static void Press1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
-        public static void Press2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });
+        public static void MButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
+        public static void Mem1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
+        public static void Mem2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });
     }
 
     public class PassengerSeatControls
     {
         private static CanHandler CanHandler => BMWControl.CanHandler;
 
-        public static void SeatForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_FORWARD, 0x00, 0xC0, 0xFF });
-        public static void SeatBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACKWARDS, 0x00, 0xC0, 0xFF });
-        public static void SeatBackForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACK_FORWARD, 0x00, 0xC0, 0xFF });
-        public static void SeatBackBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACK_BACKWARDS, 0x00, 0xC0, 0xFF });
-        public static void SeatUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_UP, 0x00, 0xC0, 0xFF });
-        public static void SeatDown() => CanHandler.SendCanFrame(CanID.SEAT_STATUS_PASSENGER, new byte[] { CanValue.SEAT_DOWN, 0x00, 0xC0, 0xFF });
+        public static void Forward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_FORWARD, 0x00, 0xC0, 0xFF });
+        public static void Backwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void BackrestForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACK_FORWARD, 0x00, 0xC0, 0xFF });
+        public static void BackrestBackwards() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_BACK_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void Up() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_UP, 0x00, 0xC0, 0xFF });
+        public static void Down() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_DOWN, 0x00, 0xC0, 0xFF });
+        public static void TiltForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_TILT_FORWARDS, 0x00, 0xC0, 0xFF });
+        public static void TiltBackward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { CanValue.SEAT_TILT_BACKWARDS, 0x00, 0xC0, 0xFF });
+        public static void CushionForward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, CanValue.SEAT_CUSHION_FORWARD, 0xC0, 0xFF });
+        public static void CushionBackward() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, CanValue.SEAT_CUSHION_BACKWARDS, 0xC0, 0xFF });
+        public static void HeadrestUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_UP, 0xFF });
+        public static void HeadrestDown() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_DOWN, 0xFF });
 
-        public static void PressMButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
-        public static void Press1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
-        public static void Press2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });
+        public static void MButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
+        public static void Mem1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
+        public static void Mem2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });
     }
 }

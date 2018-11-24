@@ -29,9 +29,9 @@ namespace BMWControl.Misc
         //Steering wheel buttons
         public const int STEERING_WHEEL_BUTTON_VOL_DOWN = 0xC4;
         public const int STEERING_WHEEL_BUTTON_VOL_UP = 0xC8;
-        public const int STEERING_WHEEL_BUTTON_VOICE = 0xC9;
-        public const int STEERING_WHEEL_BUTTON_PHONE = 0xC1;
-        public const int STEERING_WHEEL_BUTTON_DIAMOND_STAR_HORN = 0xC0;
+        public const int STEERING_WHEEL_BUTTON_VOICE = 0xC1;
+        public const int STEERING_WHEEL_BUTTON_PHONE = 0x01;
+        public const int STEERING_WHEEL_BUTTON_PHONE_DIAMOND_STAR_HORN = 0xC0;
         public const int STEERING_WHEEL_BUTTON_DIAMOND = 0x40;
         public const int STEERING_WHEEL_BUTTON_STAR = 0x10;
         public const int STEERING_WHEEL_BUTTON_UP = 0xE0;
@@ -55,6 +55,12 @@ namespace BMWControl.Misc
         public const int SEAT_DOWN = 0x08;
         public const int SEAT_BACK_FORWARD = 0x10;
         public const int SEAT_BACK_BACKWARDS = 0x20;
+        public const int SEAT_TILT_FORWARDS = 0x80;
+        public const int SEAT_TILT_BACKWARDS = 0x40;
+        public const int SEAT_CUSHION_FORWARD = 0x1C;
+        public const int SEAT_CUSHION_BACKWARDS = 0x2C;
+        public const int SEAT_HEADREST_UP = 0xC1;
+        public const int SEAT_HEADREST_DOWN = 0xC2;
         public const int SEAT_M_BUTTON = 0xFC;
         public const int SEAT_1_BUTTON = 0xF9;
         public const int SEAT_2_BUTTON = 0xFA;

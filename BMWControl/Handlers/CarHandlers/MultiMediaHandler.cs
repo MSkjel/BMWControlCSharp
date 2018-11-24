@@ -36,17 +36,22 @@ namespace BMWControl.CarHandlers
                             MultiMediaButtonHandler.SteeringWheelVoice.OnPressed();
                             break;
 
-                        case CanValue.STEERING_WHEEL_BUTTON_PHONE:
-                            MultiMediaButtonHandler.SteeringWheelPhone.OnPressed();
-                            break;
-
-                        case CanValue.STEERING_WHEEL_BUTTON_DIAMOND_STAR_HORN:
-                            if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_DIAMOND)
+                        case CanValue.STEERING_WHEEL_BUTTON_PHONE_DIAMOND_STAR_HORN:
+                            if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_PHONE)
+                                MultiMediaButtonHandler.SteeringWheelPhone.OnPressed();
+                            else if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_DIAMOND)
                                 MultiMediaButtonHandler.SteeringWheelDiamond.OnPressed();
                             else if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_STAR)
                                 MultiMediaButtonHandler.SteeringWheelStar.OnPressed();
                             else if (canFrame.Data[1] == CanValue.STEERING_WHEEL_BUTTON_HORN)
                                 MultiMediaButtonHandler.SteeringWheelHorn.OnPressed();
+                            else
+                            {
+                                MultiMediaButtonHandler.SteeringWheelPhone.OnReleased();
+                                MultiMediaButtonHandler.SteeringWheelDiamond.OnReleased();
+                                MultiMediaButtonHandler.SteeringWheelStar.OnReleased();
+                                MultiMediaButtonHandler.SteeringWheelHorn.OnReleased();
+                            }
                             break;
 
                         case CanValue.STEERING_WHEEL_BUTTON_UP:
@@ -62,11 +67,9 @@ namespace BMWControl.CarHandlers
                                 buttonEvent.OnReleased();
                             break;
                     }
-
                     break;
 
                 case CanID.IDRIVE_CONTROLLER:
-                    Console.WriteLine(canFrame.ToString());
                     switch (canFrame.Data[0])
                     {
                         case CanValue.IDRIVE_CONTROLLER_MENU_PRESS:
@@ -74,26 +77,39 @@ namespace BMWControl.CarHandlers
                                 MultiMediaButtonHandler.iDriveMenu.OnPressed();
                             else if (canFrame.Data[1] == CanValue.IDRIVE_CONTROLLER_PRESS)
                                 MultiMediaButtonHandler.iDrivePress.OnPressed();
+                            else
+                            {
+                                MultiMediaButtonHandler.iDriveMenu.OnReleased();
+                                MultiMediaButtonHandler.iDrivePress.OnReleased();
+                            }
                             break;
 
                         case CanValue.IDRIVE_CONTROLLER_UP:
                             if (canFrame.Data[1] == CanValue.IDRIVE_CONTROLLER_UP_DOWN_LEFT_RIGHT)
                                 MultiMediaButtonHandler.iDriveUp.OnPressed();
+                            else
+                                MultiMediaButtonHandler.iDriveUp.OnReleased();
                             break;
 
                         case CanValue.IDRIVE_CONTROLLER_DOWN:
                             if (canFrame.Data[1] == CanValue.IDRIVE_CONTROLLER_UP_DOWN_LEFT_RIGHT)
                                 MultiMediaButtonHandler.iDriveDown.OnPressed();
+                            else
+                                MultiMediaButtonHandler.iDriveDown.OnReleased();
                             break;
 
                         case CanValue.IDRIVE_CONTROLLER_LEFT:
                             if (canFrame.Data[1] == CanValue.IDRIVE_CONTROLLER_UP_DOWN_LEFT_RIGHT)
                                 MultiMediaButtonHandler.iDriveLeft.OnPressed();
+                            else
+                                MultiMediaButtonHandler.iDriveLeft.OnReleased();
                             break;
 
                         case CanValue.IDRIVE_CONTROLLER_RIGHT:
                             if (canFrame.Data[1] == CanValue.IDRIVE_CONTROLLER_UP_DOWN_LEFT_RIGHT)
                                 MultiMediaButtonHandler.iDriveRight.OnPressed();
+                            else
+                                MultiMediaButtonHandler.iDriveRight.OnReleased();
                             break;
 
                         default:
@@ -101,7 +117,6 @@ namespace BMWControl.CarHandlers
                                 buttonEvent.OnReleased();
                             break;
                     }
-
                 break;
             }
         }

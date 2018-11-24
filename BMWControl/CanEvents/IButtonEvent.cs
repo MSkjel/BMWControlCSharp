@@ -83,6 +83,8 @@ namespace BMWControl.CanEvents
                         Console.WriteLine(e.ToString());
                     }
                 }
+
+                IsPressed = false;
             }
         }
 

@@ -1,0 +1,166 @@
+Registered new CanEventHandler: CarHandler
+Successfully initialized can0
+Registered new CanEventHandler: DoorHandler
+Registered new CanEventHandler: LightHandler
+Registered new CanEventHandler: MultiMediaHandler
+Registered new CanEventHandler: SeatHandler
+Registered new CanEventHandler: SpeedHandler
+Registered new CanEventHandler: EngineHandler
+Steering_Wheel_Up has been pressed
+Successfully sent frame with CANID: D2
+Steering_Wheel_Up has been pressed
+Successfully sent frame with CANID: D2
+//Cush forward
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-1C-C0-FF-00-00-00-00]
+//NoOp
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+//Cush back
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-2C-C0-FF-00-00-00-00]
+//No op
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+//Tilt forward
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [80-0C-C0-FF-00-00-00-00]
+//NoOp
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+//Tilt back
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [40-0C-C0-FF-00-00-00-00]
+//NoOp
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+//HeadRest Up
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C1-FF-00-00-00-00]
+//NoOp
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+//Headrest down
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C2-FF-00-00-00-00]
+//NoOp
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+Adjustment: CanID: DA. Data: [00-0C-C0-FF-00-00-00-00]
+
+//Memory
+Mem buttons: CanID: 1F3. Data: [FC-FF-00-00-00-00-00-00]
+//NoOp
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+//Memory
+Mem buttons: CanID: 1F3. Data: [FC-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [FC-FF-00-00-00-00-00-00]
+//NoOp
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+//Mem 1
+Mem buttons: CanID: 1F3. Data: [F9-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F9-FF-00-00-00-00-00-00]
+//NoOp
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+//Mem 2
+Mem buttons: CanID: 1F3. Data: [FA-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [FA-FF-00-00-00-00-00-00]
+//NoOp
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
+Mem buttons: CanID: 1F3. Data: [F8-FF-00-00-00-00-00-00]
