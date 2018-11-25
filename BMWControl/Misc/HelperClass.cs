@@ -47,7 +47,7 @@ namespace BMWControl.Misc
         //    }
         //}
 
-        public static float GetHexReversedValueInt(IEnumerable<byte> bytes)
+        public static int GetHexReversedValueInt(IEnumerable<byte> bytes)
         {
             string[] arr = bytes.Select(x => x.ToString("X")).ToArray();
             string final = "";

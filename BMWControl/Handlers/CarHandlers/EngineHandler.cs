@@ -58,6 +58,10 @@ namespace BMWControl.CarHandlers
                 case CanID.AVERAGE_SPEED_MILEAGE:
                     AverageFuelUsage = HelperClass.GetHexReversedValueFloat(new byte[] { HelperClass.GetMSB(canFrame.Data[1]), canFrame.Data[2] }) / 10;
                     break;
+
+                case CanID.ENGINE_RPM:
+                    RPM = HelperClass.GetHexReversedValueInt(new byte[] { canFrame.Data[4], canFrame.Data[5]}) / 4;
+                    break;
             }
         }
     }

@@ -14,8 +14,8 @@ namespace BMWControl.Misc
         //Lock status
         public const int LOCK_STATUS_LOCKED = 0x84;
         public const int LOCK_STATUS_UNLOCKED = 0x81;
-        public const int LOCK_STATUS_BEEING_LOCKED = 0x31;
-        public const int LOCK_STATUS_BEEING_UNLOCKED = 0x10;
+        public const int LOCK_STATUS_BEING_LOCKED = 0x31;
+        public const int LOCK_STATUS_BEING_UNLOCKED = 0x10;
 
         //Door status
         public const int DOOR_OPEN_TRUNK = 0x01;
@@ -61,6 +61,7 @@ namespace BMWControl.Misc
         public const int SEAT_CUSHION_BACKWARDS = 0x2C;
         public const int SEAT_HEADREST_UP = 0xC1;
         public const int SEAT_HEADREST_DOWN = 0xC2;
+        public const int SEAT_M_BUTTONS_IDLE = 0xF8;
         public const int SEAT_M_BUTTON = 0xFC;
         public const int SEAT_1_BUTTON = 0xF9;
         public const int SEAT_2_BUTTON = 0xFA;

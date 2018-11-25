@@ -51,14 +51,20 @@ namespace BMWControl.CarHandlers
                 PassengerSeatControls.CushionBackward();
             }));
 
-            MultiMediaButtonHandler.SteeringWheelPhone.AddPressListener(new Action(() =>
+            MultiMediaButtonHandler.SteeringWheelPhone.AddReleaseListener(new Action(() =>
             {
-                PassengerSeatControls.HeadrestUp();
+                PassengerSeatControls.MButton();
+                PassengerSeatControls.MemoryButtonsIdle();
+                PassengerSeatControls.MemoryButtonsIdle();
+                PassengerSeatControls.MemoryButtonsIdle();
             }));
 
-            MultiMediaButtonHandler.SteeringWheelVoice.AddPressListener(new Action(() =>
+            MultiMediaButtonHandler.SteeringWheelVoice.AddReleaseListener(new Action(() =>
             {
-                PassengerSeatControls.HeadrestDown();
+                PassengerSeatControls.Mem1Button();
+                PassengerSeatControls.MemoryButtonsIdle();
+                PassengerSeatControls.MemoryButtonsIdle();
+                PassengerSeatControls.MemoryButtonsIdle();
             }));
         }
 
@@ -107,6 +113,7 @@ namespace BMWControl.CarHandlers
         public static void HeadrestUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_UP, 0xFF });
         public static void HeadrestDown() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_DRIVER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_DOWN, 0xFF });
 
+        public static void MemoryButtonsIdle() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_M_BUTTONS_IDLE, 0xFF });
         public static void MButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
         public static void Mem1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
         public static void Mem2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });
@@ -129,6 +136,7 @@ namespace BMWControl.CarHandlers
         public static void HeadrestUp() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_UP, 0xFF });
         public static void HeadrestDown() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_ADJUSTMENT_PASSENGER, new byte[] { 0x00, 0x00, CanValue.SEAT_HEADREST_DOWN, 0xFF });
 
+        public static void MemoryButtonsIdle() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_M_BUTTONS_IDLE, 0xFF });
         public static void MButton() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_M_BUTTON, 0xFF });
         public static void Mem1Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_1_BUTTON, 0xFF });
         public static void Mem2Button() => CanHandler.SendCanFrame(CanID.SEAT_CONTROLS_MEMORY_BUTTONS_PASSENGER, new byte[] { CanValue.SEAT_2_BUTTON, 0xFF });

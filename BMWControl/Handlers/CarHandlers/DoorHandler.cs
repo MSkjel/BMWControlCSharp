@@ -70,14 +70,14 @@ namespace BMWControl.CarHandlers
                     break;
 
                 case CanValue.LOCK_STATUS_UNLOCKED:
-                    CarLockStatus = DOOR_LOCK_STATUS.BEING_UNLOCKED;
+                    CarLockStatus = DOOR_LOCK_STATUS.UNLOCKED;
                     break;
 
-                case CanValue.LOCK_STATUS_BEEING_LOCKED:
+                case CanValue.LOCK_STATUS_BEING_LOCKED:
                     CarLockStatus = DOOR_LOCK_STATUS.BEING_LOCKED;
                     break;
 
-                case CanValue.LOCK_STATUS_BEEING_UNLOCKED:
+                case CanValue.LOCK_STATUS_BEING_UNLOCKED:
                     CarLockStatus = DOOR_LOCK_STATUS.BEING_UNLOCKED;
                     break;
             }

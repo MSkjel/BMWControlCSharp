@@ -25,6 +25,8 @@ namespace BMWControl.CarHandlers
         public new static MultiMediaButtonHandler MultiMediaButtonHandler = new MultiMediaButtonHandler();
         #endregion
 
+        public string NiceName = "Test1";
+
         public int Mileage;
         public int Range;
 
@@ -45,10 +47,18 @@ namespace BMWControl.CarHandlers
 
         public override void OnCanFrameReceived(CanFrame canFrame)
         {
-            //switch(canFrame.CanID)
-            //{
-                
-            //}
+            switch (canFrame.CanID)
+            {
+                case CanID.FUEL_MIL_RNG:
+                    Mileage = canFrame.Data[2] + canFrame.Data[1] + canFrame.Data[0];
+                    Range = HelperClass.GetHexReversedValueInt(new byte[] { canFrame.Data[6], canFrame.Data[7]}) / 16;
+                    TankLevel = canFrame.Data[3];
+                    break;
+
+                case CanID.BATTERY_VOLTAGE:
+                    BatteryVoltage = (HelperClass.GetHexReversedValueFloat(new byte[] { canFrame.Data[0], canFrame.Data[1] }) - 61440f) / 68;
+                    break;
+            }
         }
     }
 }

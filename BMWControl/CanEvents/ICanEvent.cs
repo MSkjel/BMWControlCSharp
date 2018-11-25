@@ -12,10 +12,10 @@ namespace BMWControl.CanEvents
 {
     public abstract class ICanEvent
     {
-        public CanHandler CanHandler => BMWControl.CanHandler;
-        public CanEventHandler CanEventHandler => BMWControl.CanEventHandler;
-        public CarHandler CarHandler => BMWControl.CarHandler;
-        public MultiMediaButtonHandler MultiMediaButtonHandler => CarHandler.MultiMediaButtonHandler;
+        protected CanHandler CanHandler => BMWControl.CanHandler;
+        protected CanEventHandler CanEventHandler => BMWControl.CanEventHandler;
+        protected CarHandler CarHandler => BMWControl.CarHandler;
+        protected MultiMediaButtonHandler MultiMediaButtonHandler => CarHandler.MultiMediaButtonHandler;
 
         public virtual string Name => GetType().Name;
 
