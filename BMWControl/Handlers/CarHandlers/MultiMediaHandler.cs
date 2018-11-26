@@ -14,7 +14,10 @@ namespace BMWControl.CarHandlers
     {
         public MultiMediaHandler()
         {
-            CanEventHandler.AddCanEventHandler(this);          
+            CanEventHandler.AddCanEventHandler(this);
+
+            if(ConfigHandler.SetTimeAtBoot)
+                SetDateAndTime(DateTime.Now);
         }
 
         public override void OnCanFrameReceived(CanFrame canFrame)
@@ -119,6 +122,14 @@ namespace BMWControl.CarHandlers
                     }
                 break;
             }
+        }
+
+        public void SetDateAndTime(DateTime dateTime)
+        {
+            byte[] year = HelperClass.GetReversedBytes(dateTime.Year).ToArray();
+            byte[] date = new byte[8] { (byte)dateTime.Hour, (byte)dateTime.Minute, (byte)dateTime.Second, (byte)dateTime.Day, (byte)int.Parse($"{dateTime.Month.ToString("X")}F", System.Globalization.NumberStyles.HexNumber), year[0], year[1], 0xF2};
+
+            CanHandler.SendCanFrame(CanID.SET_DATE_TIME, date);
         }
     }
 }

@@ -59,7 +59,7 @@ namespace BMWControl.Misc
                 final += s;
             }
 
-            return short.Parse(final, NumberStyles.HexNumber);
+            return int.Parse(final, NumberStyles.HexNumber);
         }
 
         public static float GetHexReversedValueFloat(IEnumerable<byte> bytes)
@@ -74,7 +74,16 @@ namespace BMWControl.Misc
                 final += s;
             }
 
-            return Convert.ToSingle(short.Parse(final, NumberStyles.HexNumber));
+            return Convert.ToSingle(int.Parse(final, NumberStyles.HexNumber));
+        }
+
+        public static IEnumerable<byte> GetReversedBytes(int dec)
+        {
+            byte[] buffer = BitConverter.GetBytes(dec).Take(2).ToArray();
+
+            Array.Reverse(buffer);
+
+            return buffer;
         }
 
         public static string DecodeVIN(byte[] bytes)

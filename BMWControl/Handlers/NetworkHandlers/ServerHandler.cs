@@ -74,6 +74,10 @@ namespace BMWControl.Handlers
 
                 case NetworkID.NEW_UPDATE_AVAILABLE:
                     break;
+
+                case "STOP":
+                    BMWControl.ConfigHandler.Run = false;
+                    break;
             }
         }
 
@@ -111,7 +115,7 @@ namespace BMWControl.Handlers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                //Console.WriteLine(e.ToString());
 
                 return null;
             }
@@ -121,7 +125,8 @@ namespace BMWControl.Handlers
         {
             string message = $"{NetworkID.SEND_STATUS}\\" +
                 $"{CarHandler.NiceName}\\" +
-                $"{CarHandler.Mileage}\\" +
+                $"{DateTime.Now.ToString()}\\" +
+                $"{CarHandler.Odometer}\\" +
                 $"{CarHandler.Range}\\" +
                 $"{CarHandler.TankLevel}\\" +
                 $"{CarHandler.BatteryVoltage}\\" +
@@ -131,8 +136,11 @@ namespace BMWControl.Handlers
                 $"{DoorHandler.Doors.DriverRear}\\" +
                 $"{DoorHandler.Doors.PassengerRear}\\" +
                 $"{DoorHandler.Doors.Trunk}\\" +
+                $"{CarHandler.SteeringWheelAngle}\\" +
                 $"{EngineHandler.Ignition}\\" +
                 $"{EngineHandler.RPM}\\" +
+                $"{EngineHandler.Throttle}" +
+                $"{EngineHandler.Torque}\\" +
                 $"{EngineHandler.AverageFuelUsage}\\" +
                 $"{EngineHandler.Temperatures.Coolant}\\" +
                 $"{SpeedHandler.Speeds.Average}\\" +

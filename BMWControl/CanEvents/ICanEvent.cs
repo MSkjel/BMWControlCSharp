@@ -12,6 +12,7 @@ namespace BMWControl.CanEvents
 {
     public abstract class ICanEvent
     {
+        protected ConfigHandler ConfigHandler => BMWControl.ConfigHandler;
         protected CanHandler CanHandler => BMWControl.CanHandler;
         protected CanEventHandler CanEventHandler => BMWControl.CanEventHandler;
         protected CarHandler CarHandler => BMWControl.CarHandler;
