@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,7 @@
     <Compile Include="CanEvents\ICanEvent.cs" />
     <Compile Include="Handlers\ButtonHandlers\SteeringWheelSwitches.cs" />
     <Compile Include="Handlers\CarHandlers\CarHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\ClimateHandler.cs" />
     <Compile Include="Handlers\CarHandlers\EngineHandler.cs" />
     <Compile Include="Handlers\CarHandlers\SpeedHandler.cs" />
     <Compile Include="Handlers\ButtonHandlers\MultiMediaButtonHandler.cs" />
@@ -57,6 +61,7 @@
     <Compile Include="Handlers\CarHandlers\SeatHandler.cs" />
     <Compile Include="Handlers\CanHandlers\CanEventHandler.cs" />
     <Compile Include="Handlers\CanHandlers\CanHandler.cs" />
+    <Compile Include="Handlers\CarHandlers\TimeHandler.cs" />
     <Compile Include="Handlers\NetworkHandlers\ServerHandler.cs" />
     <Compile Include="Misc\CanFrame.cs" />
     <Compile Include="Misc\CanID.cs" />
@@ -66,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

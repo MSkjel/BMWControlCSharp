@@ -12,7 +12,7 @@ namespace BMWControl.CarHandlers
     {
         public struct TemperatureStruct
         {
-            public float Coolant;
+            public int Coolant;
             public int Oil;
             public int Intake;
         }
@@ -46,7 +46,7 @@ namespace BMWControl.CarHandlers
             switch(canFrame.CanID)
             {
                 case CanID.ENGINE_TEMP_PRESSURE_HANDBRAKE:
-                    Temperatures.Coolant = canFrame.Data[0] - 48f;
+                    Temperatures.Coolant = canFrame.Data[0] - 48;
                     //OilPressure?
                     //Handbrake?
                     break;

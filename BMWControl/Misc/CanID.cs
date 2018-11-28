@@ -65,6 +65,9 @@ namespace BMWControl.Misc
         public const int SEAT_M_BUTTON = 0xFC;
         public const int SEAT_1_BUTTON = 0xF9;
         public const int SEAT_2_BUTTON = 0xFA;
+
+        //Climate
+        public const int AIRCON_ON = 0xFD;
     }
 
     public class CanID
@@ -91,10 +94,12 @@ namespace BMWControl.Misc
         //Door status
         public const int DOOR_STATUS = 0x2FC;
 
-        //Temperature
+        //Climate
         public const int OUTSIDE_TEMP = 0x2CA;        
-        public const int INSIDE_TEMP = 0x32E;
-
+        public const int INSIDE_TEMP_SOLAR = 0x32E;
+        public const int AIRCON_STATUS = 0x2D6;
+        public const int CLIMATE_STATUS_DRIVER = 0x2E6;
+        public const int CLIMATE_STATUS_PASSENGER = 0x2EA;
 
         //Engine stuff
         public const int IGNITION_STATUS = 0x130;
@@ -125,5 +130,6 @@ namespace BMWControl.Misc
 
         //Time
         public const int SET_DATE_TIME = 0x39E;
+        public const int GET_DATE_TIME = 0x2F8;
     }
 }

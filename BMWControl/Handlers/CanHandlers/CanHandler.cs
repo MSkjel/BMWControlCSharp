@@ -106,7 +106,7 @@ namespace BMWControl.Handlers
 
             if (SendMsg(cFrame, frame.Extended, frame.RTR, ref errorCode))
             {
-                Console.WriteLine($"Successfully sent frame with CANID: {frame.CanID.ToString("X")}");
+                Console.WriteLine($"Successfully sent frame with {frame.ToString()}");
 
                 return true;
             }
