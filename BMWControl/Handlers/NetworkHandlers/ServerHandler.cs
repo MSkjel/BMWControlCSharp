@@ -1,5 +1,6 @@
 ﻿using BMWControl.CarHandlers;
 using BMWControl.Handlers.CarHandlers;
+using BMWControl.Handlers.NetworkHandlers;
 using BMWControl.Misc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -50,7 +51,7 @@ namespace BMWControl.Handlers
                     {
                         if (NetworkWatch.ElapsedMilliseconds > 1000)
                         {
-                            CheckReceivedMessage(GETString(NetworkID.PING));
+                            CheckReceivedMessage(GETString($"{NetworkID.PING}\\{CarHandler.VIN}"));
 
                             NetworkWatch.Restart();
                         }
@@ -80,6 +81,10 @@ namespace BMWControl.Handlers
                 case NetworkID.NEW_UPDATE_AVAILABLE:
                     break;
 
+                case NetworkID.EXECUTE_COMMAND:
+                    CarFunctions.CheckCommand(split.Skip(1));
+                    break;
+
                 case "STOP":
                     BMWControl.ConfigHandler.Run = false;
                     break;
@@ -94,13 +99,13 @@ namespace BMWControl.Handlers
 
                 using (TcpClient webhandle = new TcpClient(ServerIP, Port))
                 {
-                    webhandle.ReceiveTimeout = 3000;
-                    webhandle.SendTimeout = 3000;
+                    webhandle.ReceiveTimeout = 1000;
+                    webhandle.SendTimeout = 1000;
 
                     using (NetworkStream nStream = webhandle.GetStream())
                     {
-                        nStream.WriteTimeout = 3000;
-                        nStream.ReadTimeout = 3000;
+                        nStream.WriteTimeout = 500;
+                        nStream.ReadTimeout = 500;
 
                         string req = message;
 

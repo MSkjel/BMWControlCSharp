@@ -62,6 +62,7 @@
     <Compile Include="Handlers\CanHandlers\CanEventHandler.cs" />
     <Compile Include="Handlers\CanHandlers\CanHandler.cs" />
     <Compile Include="Handlers\CarHandlers\TimeHandler.cs" />
+    <Compile Include="Handlers\NetworkHandlers\CarFunctions.cs" />
     <Compile Include="Handlers\NetworkHandlers\ServerHandler.cs" />
     <Compile Include="Misc\CanFrame.cs" />
     <Compile Include="Misc\CanID.cs" />

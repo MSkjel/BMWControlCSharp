@@ -54,6 +54,16 @@ namespace BMWControlApp
             public int Coolant;
             public int Oil;
             public int Intake;
+
+            public int DriverTemperatureSetpoint;
+            public int PassengerTemperatureSetpoint;
+
+            public int InteriorTemperatureClimate;
+            public int InteriorTemperatureDriverActual;
+            public int InteriorTemperaturePassengerActual;
+
+            public float OutsideTemperature;
+            public int CoolantTemperature;
         }
 
         public enum IgnitionStatus
@@ -77,6 +87,7 @@ namespace BMWControlApp
 
         public DateTime CarTime;
         public DateTime LastUpdate;
+        public DateTime LastCanEvent;
 
         public string VIN;
         public string NiceName;
@@ -102,6 +113,12 @@ namespace BMWControlApp
         public IgnitionStatus Ignition = IgnitionStatus.OFF;
 
         public SpeedStruct Speeds = new SpeedStruct();
+
+        public bool AirCondition;
+        public bool RearDemister;
+
+        public int SolarSensor;
+        public int FanSpeed;
 
         public override string ToString()
         {

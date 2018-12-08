@@ -13,6 +13,7 @@ namespace BMWControl.Misc
         public const string GET_CONFIG = "GET_CONFIG";
         public const string GET_TIME = "GET_TIME";
         public const string SEND_STATUS = "SEND_STATUS";
+        public const string EXECUTE_COMMAND = "EXECUTE_COMMAND";
         public const string PING = "PING";
         public const string UPDATE_CHECK = "UPDATE_CHECK";
         public const string NEW_UPDATE_AVAILABLE = "NEW_UPDATE_AVAILABLE";

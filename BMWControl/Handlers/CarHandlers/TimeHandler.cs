@@ -12,6 +12,7 @@ namespace BMWControl.Handlers.CarHandlers
     public class TimeHandler : ICanEvent
     {
         public DateTime CarTime;
+        public DateTime LastCanEvent;
 
         public TimeHandler()
         {
@@ -38,6 +39,8 @@ namespace BMWControl.Handlers.CarHandlers
 
         public override void OnCanFrameReceived(CanFrame canFrame)
         {
+            LastCanEvent = DateTime.Now;
+
             switch(canFrame.CanID)
             {
                 case CanID.GET_DATE_TIME:

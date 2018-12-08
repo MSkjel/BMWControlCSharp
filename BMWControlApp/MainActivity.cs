@@ -12,11 +12,12 @@ using Newtonsoft.Json;
 
 namespace BMWControlApp
 {
-    [Activity(Label = "SimpleRecycler", MainLauncher = true/*, Icon = "@drawable/icon"*/)]
+    [Activity(Label = "BMW Control", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class MainActivity : Activity
     {
         private RecyclerView rv;
         private MainAdapter adapter;
+        private static string VIN = "Test1";
 
         /*
          * Oncreate method
@@ -33,10 +34,16 @@ namespace BMWControlApp
             rv.SetLayoutManager(new LinearLayoutManager(this));
             rv.SetItemAnimator(new DefaultItemAnimator());
 
-            //ADAPTER
-            adapter = new MainAdapter(GetCarInfo());
-            rv.SetAdapter(adapter);
+            Button button = FindViewById<Button>(Resource.Id.okButton);
+            EditText text = FindViewById<EditText>(Resource.Id.inputText);
 
+            button.Click += delegate 
+            {
+                VIN = text.Text;
+
+                adapter = new MainAdapter(GetCarInfo());
+                rv.SetAdapter(adapter);
+            };
         }
 
         public static string GETString(string message)
@@ -77,16 +84,17 @@ namespace BMWControlApp
             }
         }
 
-        public static Dictionary<string, string> GetCarInfo()
+    public static Dictionary<string, string> GetCarInfo()
         {
-            Car car = JsonConvert.DeserializeObject<Car>(GETString("CLIENT\\GET_STATUS\\Test1"));
+            Car car = JsonConvert.DeserializeObject<Car>(GETString($"CLIENT\\GET_STATUS\\{VIN}"));
 
             try
             {
                     return new Dictionary<string, string>()
                     {
                         { "CarStatus",
-                            $"LastUpdate: {car.LastUpdate}\n" +
+                            $"Last Update: {((DateTime.Now - car.LastUpdate).TotalSeconds > 0 ? (int)(DateTime.Now - car.LastUpdate).TotalSeconds : 0)} second(s)\n" +
+                            $"Last CanEvent: {((DateTime.Now - car.LastCanEvent).TotalSeconds > 0 ? (int)(DateTime.Now - car.LastCanEvent).TotalSeconds : 0)} second(s)\n" +
                             $"Name: {car.NiceName}\n" +
                             $"VIN: {car.VIN}\n" +
                             $"Odometer: {car.Odometer}\n" +
@@ -117,6 +125,14 @@ namespace BMWControlApp
                             $"Front Right: {car.Speeds.FrontRight}\n" +
                             $"Rear Left: {car.Speeds.RearLeft}\n" +
                             $"Rear Right: {car.Speeds.RearRight}"
+                        },
+                        { "ClimateHandler",
+                            $"Outside: {car.Temperatures.OutsideTemperature}\n" +
+                            $"Inside Center: {car.Temperatures.InteriorTemperatureClimate}\n" +
+                            $"Driver Actual: {car.Temperatures.InteriorTemperatureDriverActual}\n" +
+                            $"Passenger Actual: {car.Temperatures.InteriorTemperaturePassengerActual}\n" +
+                            $"Driver Setpoint: {car.Temperatures.DriverTemperatureSetpoint}\n" +
+                            $"Passenger Setpoint: {car.Temperatures.PassengerTemperatureSetpoint}"
                         }
                     };
             }
