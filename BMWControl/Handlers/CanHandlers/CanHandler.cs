@@ -60,11 +60,11 @@ namespace BMWControl.Handlers
 
         public CanHandler()
         {
-            Task.Factory.StartNew(() =>
-            {
-                if (Initialize())
-                    CanReceiveLoop();
-            });
+        //    Task.Factory.StartNew(() =>
+        //    {
+        //        if (Initialize())
+        //            CanReceiveLoop();
+        //    });
         }
 
         private bool Initialize()

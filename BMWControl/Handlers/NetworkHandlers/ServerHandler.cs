@@ -29,7 +29,7 @@ namespace BMWControl.Handlers
         private TimeHandler TimeHandler => CarHandler.TimeHandler;
         private ClimateHandler ClimateHandler => CarHandler.ClimateHandler;
 
-        private const string ServerIP = "sinxclan.net";
+        private const string ServerIP = "51.174.232.202";
         private const int Port = 747;
 
         private Stopwatch NetworkWatch = new Stopwatch();
@@ -60,6 +60,8 @@ namespace BMWControl.Handlers
                     {
                         Console.WriteLine(e.ToString());
                     }
+
+                    Thread.Sleep(100);
                 }
             }
             catch(Exception e)
