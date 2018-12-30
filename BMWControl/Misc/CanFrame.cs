@@ -32,5 +32,10 @@ namespace BMWControl.Misc
         {
             return $"CanID: {CanID.ToString("X2")}. Data: [{string.Join("-", Data.Select(x => x.ToString("X2")))}]";
         }
+
+        public string ToStringInt()
+        {
+            return $"CanID: {CanID.ToString("X2")}. Data: [{string.Join("-", Data.Select(x => x.ToString()))}]";
+        }
     }
 }

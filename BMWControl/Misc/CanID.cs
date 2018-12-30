@@ -65,19 +65,22 @@ namespace BMWControl.Misc
         public const int SEAT_M_BUTTON = 0xFC;
         public const int SEAT_1_BUTTON = 0xF9;
         public const int SEAT_2_BUTTON = 0xFA;
+
+        //Climate
+        public const int AIRCON_ON = 0xFD;
     }
 
     public class CanID
     {
         //RPM
-        public const int ENGINE_RPM = 0xAA;
+        public const int ENGINE_RPM_THROTTLE = 0xAA;
 
         //Speeds
         public const int INDIVIDUAL_WHEEL_SPEEDS = 0xCE;
         public const int VEHICLE_SPEED = 0x1A6;
 
         //Fuel Range and Mileage
-        public const int FUEL_MIL_RNG = 0x330;
+        public const int FUEL_ODO_RNG = 0x330;
 
         //Average speed and Mileage
         public const int AVERAGE_SPEED_MILEAGE = 0x362;
@@ -91,14 +94,17 @@ namespace BMWControl.Misc
         //Door status
         public const int DOOR_STATUS = 0x2FC;
 
-        //Temperature
-        public const int OUTSIDE_TEMP = 0x2CA;
-        public const int ENGINE_TEMP_PRESSURE_HANDBRAKE = 0x1D0;
-        public const int INSIDE_TEMP = 0x32E;
+        //Climate
+        public const int OUTSIDE_TEMP = 0x2CA;        
+        public const int INSIDE_TEMP_SOLAR = 0x32E;
+        public const int AIRCON_STATUS = 0x2D6;
+        public const int CLIMATE_STATUS_DRIVER = 0x2E6;
+        public const int CLIMATE_STATUS_PASSENGER = 0x2EA;
 
-
-        //Ignition status
+        //Engine stuff
         public const int IGNITION_STATUS = 0x130;
+        public const int ENGINE_TEMP_PRESSURE_HANDBRAKE = 0x1D0;
+        public const int TORQUE_BRAKE = 0xA8;
 
         //Voltage
         public const int BATTERY_VOLTAGE = 0x3B4;
@@ -109,6 +115,7 @@ namespace BMWControl.Misc
 
         //Steering wheel
         public const int STEERING_WHEEL_CONTROLS = 0x1D6;
+        public const int STEERING_WHEEL_ANGLE = 0x0C8;
 
         //iDrive Controller
         public const int IDRIVE_CONTROLLER = 0x1B8;
@@ -120,5 +127,9 @@ namespace BMWControl.Misc
         //Seat Controls Driver
         public const int SEAT_CONTROLS_ADJUSTMENT_DRIVER = 0xDA;
         public const int SEAT_CONTROLS_MEMORY_BUTTONS_DRIVER = 0x1F3;
+
+        //Time
+        public const int SET_DATE_TIME = 0x39E;
+        public const int GET_DATE_TIME = 0x2F8;
     }
 }

@@ -9,5 +9,6 @@ namespace BMWControl.Handlers
     public class ConfigHandler
     {
         public bool Run = true;
+        public bool SetTimeAtBoot = true;
     }
 }

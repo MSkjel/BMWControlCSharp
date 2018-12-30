@@ -1,5 +1,9 @@
 ﻿using BMWControl.CarHandlers;
+using BMWControl.Handlers.CarHandlers;
+using BMWControl.Handlers.NetworkHandlers;
 using BMWControl.Misc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,8 +26,10 @@ namespace BMWControl.Handlers
         private MultiMediaHandler MultiMediaHandler => CarHandler.MultiMediaHandler;
         private SeatHandler SeatHandler => CarHandler.SeatHandler;
         private SpeedHandler SpeedHandler => CarHandler.SpeedHandler;
+        private TimeHandler TimeHandler => CarHandler.TimeHandler;
+        private ClimateHandler ClimateHandler => CarHandler.ClimateHandler;
 
-        private const string ServerIP = "sinxclan.net";
+        private const string ServerIP = "51.174.232.202";
         private const int Port = 747;
 
         private Stopwatch NetworkWatch = new Stopwatch();
@@ -45,7 +51,7 @@ namespace BMWControl.Handlers
                     {
                         if (NetworkWatch.ElapsedMilliseconds > 1000)
                         {
-                            CheckReceivedMessage(GETString(NetworkID.PING));
+                            CheckReceivedMessage(GETString($"{NetworkID.PING}\\{CarHandler.VIN}"));
 
                             NetworkWatch.Restart();
                         }
@@ -54,6 +60,8 @@ namespace BMWControl.Handlers
                     {
                         Console.WriteLine(e.ToString());
                     }
+
+                    Thread.Sleep(100);
                 }
             }
             catch(Exception e)
@@ -74,6 +82,14 @@ namespace BMWControl.Handlers
 
                 case NetworkID.NEW_UPDATE_AVAILABLE:
                     break;
+
+                case NetworkID.EXECUTE_COMMAND:
+                    CarFunctions.CheckCommand(split.Skip(1));
+                    break;
+
+                case "STOP":
+                    BMWControl.ConfigHandler.Run = false;
+                    break;
             }
         }
 
@@ -81,17 +97,17 @@ namespace BMWControl.Handlers
         {
             try
             {
-                Console.WriteLine("Sending: " + message);
+                //Console.WriteLine("Sending: " + message);
 
                 using (TcpClient webhandle = new TcpClient(ServerIP, Port))
                 {
-                    webhandle.ReceiveTimeout = 3000;
-                    webhandle.SendTimeout = 3000;
+                    webhandle.ReceiveTimeout = 1000;
+                    webhandle.SendTimeout = 1000;
 
                     using (NetworkStream nStream = webhandle.GetStream())
                     {
-                        nStream.WriteTimeout = 3000;
-                        nStream.ReadTimeout = 3000;
+                        nStream.WriteTimeout = 500;
+                        nStream.ReadTimeout = 500;
 
                         string req = message;
 
@@ -111,7 +127,7 @@ namespace BMWControl.Handlers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                //Console.WriteLine(e.ToString());
 
                 return null;
             }
@@ -119,28 +135,28 @@ namespace BMWControl.Handlers
 
         public string GetStatusUpdate()
         {
-            string message = $"{NetworkID.SEND_STATUS}\\" +
-                $"{CarHandler.NiceName}\\" +
-                $"{CarHandler.Mileage}\\" +
-                $"{CarHandler.Range}\\" +
-                $"{CarHandler.TankLevel}\\" +
-                $"{CarHandler.BatteryVoltage}\\" +
-                $"{DoorHandler.CarLockStatus}\\" +
-                $"{DoorHandler.Doors.Driver}\\" +
-                $"{DoorHandler.Doors.Passenger}\\" +
-                $"{DoorHandler.Doors.DriverRear}\\" +
-                $"{DoorHandler.Doors.PassengerRear}\\" +
-                $"{DoorHandler.Doors.Trunk}\\" +
-                $"{EngineHandler.Ignition}\\" +
-                $"{EngineHandler.RPM}\\" +
-                $"{EngineHandler.AverageFuelUsage}\\" +
-                $"{EngineHandler.Temperatures.Coolant}\\" +
-                $"{SpeedHandler.Speeds.Average}\\" +
-                $"{SpeedHandler.Speeds.Vehicle}\\" +
-                $"{SpeedHandler.Speeds.FrontLeft}\\" +
-                $"{SpeedHandler.Speeds.FrontRight}\\" +
-                $"{SpeedHandler.Speeds.RearLeft}\\" +
-                $"{SpeedHandler.Speeds.RearRight}\\";
+            CarHandler.CarTime = DateTime.Now;
+
+            string message =
+                $"{NetworkID.SEND_STATUS}\\" +
+                $"{CarHandler.VIN}\\";
+
+            JsonMergeSettings settings = new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Concat };
+            JObject Car = JObject.FromObject(CarHandler);
+            JObject Doors = JObject.FromObject(DoorHandler);
+            JObject Engine = JObject.FromObject(EngineHandler);
+            JObject Speed = JObject.FromObject(SpeedHandler);
+            JObject Time = JObject.FromObject(TimeHandler);
+            JObject Climate = JObject.FromObject(ClimateHandler);
+
+            Car.Merge(Engine, settings);
+            Car.Merge(Doors, settings);
+            Car.Merge(Engine, settings);
+            Car.Merge(Speed, settings);
+            Car.Merge(Climate, settings);
+            Car.Merge(Time, settings);
+
+            message += Car.ToString();
 
             return message;
         }
